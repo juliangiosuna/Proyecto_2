@@ -48,21 +48,10 @@ public class Controlador {
 		return curso.postCurso(c);
 	}
 
-	@PutMapping(value = "cursos/{name}", consumes = MediaType.APPLICATION_XML_VALUE)
+	@PutMapping(value = "cursos/{name}", consumes = MediaType.APPLICATION_XML_VALUE , produces=MediaType.APPLICATION_XML_VALUE)
 	public ArrayList<Curso> putCurso(@PathVariable("name") String name, @RequestBody Curso cursoToUpdate) {
-	    ArrayList<Curso> cursos = Curso.myListCourses(); 
-
-	    for (Curso curso : cursos) {
-	        if (curso.getName().equals(name)) {
-	        	curso.setName(cursoToUpdate.getName());
-	            curso.setDuration(cursoToUpdate.getDuration());
-	            curso.setCost(cursoToUpdate.getCost());
-	            curso.setAbility(cursoToUpdate.getAbility());
-	            break;
-	        }
-	    }
-
-	    return cursos; 
+	      
+	    return curso.putCurso(name, cursoToUpdate.getName(), cursoToUpdate.getDuration(),cursoToUpdate.getCost() , cursoToUpdate.getAbility()) ; 
 	}
 
 

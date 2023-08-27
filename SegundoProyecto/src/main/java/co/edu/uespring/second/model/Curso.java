@@ -55,12 +55,12 @@ public class Curso {
 		return cursos;
 	}
 	
-	public ArrayList<Curso> putCurso(String name, double duration, double cost, int ability) {
+	public ArrayList<Curso> putCurso(String name,String nameNew, double duration, double cost, int ability) {
 	    ArrayList<Curso> cursos = myListCourses();
 
 	    for (Curso curso : cursos) {
 	        if (curso.getName().equals(name)) {
-	            curso.setName(name);
+	            curso.setName(nameNew);
 	            curso.setDuration(duration);
 	            curso.setCost(cost);
 	            curso.setAbility(ability);
